@@ -16,29 +16,29 @@ export function Home() {
     <PageTransition>
       {/* Hero Section */}
       <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden bg-obsidian">
-        <motion.div 
-          style={{ y, opacity }} 
+        <motion.div
+          style={{ y, opacity }}
           className="absolute inset-0 z-0"
         >
           {/* Abstract dark luxury gem image */}
           <div className="absolute inset-0 bg-gradient-to-b from-obsidian/40 via-transparent to-obsidian z-10" />
-          <img 
-            src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2000&auto=format&fit=crop" 
-            alt="Cinematic luxury gem reflection" 
-            className="w-full h-full object-cover opacity-60 mix-blend-screen scale-105"
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg"
+            alt="Cinematic luxury gem reflection"
+            className="w-full h-full object-cover opacity-20 dark:opacity-60 mix-blend-multiply dark:mix-blend-screen scale-105"
           />
         </motion.div>
-        
+
         <div className="relative z-10 text-center px-6">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-6xl md:text-8xl lg:text-9xl text-ivory mb-6 tracking-tight text-balance"
           >
-            Unearth the <br/><span className="text-gold italic">Extraordinary.</span>
+            Unearth the <br /><span className="text-gold italic">Extraordinary.</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
@@ -48,7 +48,7 @@ export function Home() {
           </motion.p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
@@ -62,7 +62,7 @@ export function Home() {
       {/* Featured Statement */}
       <section className="py-32 md:py-48 px-6 bg-obsidian">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -87,7 +87,7 @@ export function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -95,7 +95,7 @@ export function Home() {
             className="group cursor-pointer"
           >
             <div className="overflow-hidden aspect-[3/4] mb-6 glint-effect">
-              <img src="https://images.unsplash.com/photo-1599643477877-508b506dbb18?q=80&w=1000&auto=format&fit=crop" alt="The Crimson Heart Ruby" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Corundum-215330.jpg" alt="The Crimson Heart Ruby" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
             </div>
             <div className="flex justify-between items-start">
               <div>
@@ -106,7 +106,7 @@ export function Home() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -114,7 +114,7 @@ export function Home() {
             className="group cursor-pointer md:mt-24"
           >
             <div className="overflow-hidden aspect-[3/4] mb-6 glint-effect">
-              <img src="https://images.unsplash.com/photo-1573408301145-b98f24b162f4?q=80&w=1000&auto=format&fit=crop" alt="Ocean Deep Sapphire" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Logan_Sapphire_10956420_cropped.png/960px-Logan_Sapphire_10956420_cropped.png" alt="Ocean Deep Sapphire" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
             </div>
             <div className="flex justify-between items-start">
               <div>

@@ -7,21 +7,21 @@ const articles = [
     date: 'OCT 12, 2026',
     title: 'The Resurgence of the Unheated Ruby',
     desc: 'Why collectors are shifting their gaze from diamonds to the visceral depth of unheated Burmese rubies.',
-    img: 'https://images.unsplash.com/photo-1590483736622-398541c4dcb7?q=80&w=800&auto=format&fit=crop'
+    img: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Corundum-215330.jpg'
   },
   {
     category: 'Behind the Design',
     date: 'SEP 28, 2026',
     title: 'Engineering the Floating Setting',
     desc: 'An invisible lattice of titanium and platinum that creates the illusion of stones resting on bare skin.',
-    img: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=800&auto=format&fit=crop'
+    img: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg'
   },
   {
     category: 'Sourcing',
     date: 'AUG 05, 2026',
     title: 'Journey to the Muzo Mines',
     desc: 'Our latest expedition reveals a cache of emeralds exhibiting the legendary "butterfly wing" phenomenon.',
-    img: 'https://images.unsplash.com/photo-1595166297394-bb0655ea091a?q=80&w=800&auto=format&fit=crop'
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/B%C3%A9ryl_var._%C3%A9meraude_sur_gangue_%28Muzo_Mine_Boyaca_-_Colombie%29_2.jpg/960px-B%C3%A9ryl_var._%C3%A9meraude_sur_gangue_%28Muzo_Mine_Boyaca_-_Colombie%29_2.jpg'
   }
 ];
 
@@ -37,7 +37,7 @@ export function Journal() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {articles.map((article, idx) => (
-          <motion.article 
+          <motion.article
             key={idx}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
