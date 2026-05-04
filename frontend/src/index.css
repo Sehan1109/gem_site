@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  
+  --color-obsidian: var(--theme-obsidian);
+  --color-charcoal: var(--theme-charcoal);
+  --color-gold: var(--theme-gold);
+  --color-gold-muted: var(--theme-gold-muted);
+  --color-ivory: var(--theme-ivory);
+  --color-silver: var(--theme-silver);
+}
+
+:root {
+  --theme-obsidian: #F5F5F0;
+  --theme-charcoal: #EAEAE5;
+  --theme-gold: #D4AF37;
+  --theme-gold-muted: #A8862F;
+  --theme-ivory: #050505;
+  --theme-silver: #555555;
+  color-scheme: light;
+}
+
+.dark {
+  --theme-obsidian: #050505;
+  --theme-charcoal: #121212;
+  --theme-gold: #D4AF37;
+  --theme-gold-muted: #A8862F;
+  --theme-ivory: #F5F5F0;
+  --theme-silver: #A0A0A0;
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian text-ivory font-sans antialiased selection:bg-gold selection:text-obsidian overflow-x-hidden transition-colors duration-500;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal tracking-wide;
+  }
+}
+
+/* Custom Utilities for Luxury Feel */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glint-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .glint-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    transition: all 0.7s ease;
+  }
+  .glint-effect:hover::after {
+    left: 150%;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
