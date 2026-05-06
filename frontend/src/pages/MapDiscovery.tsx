@@ -84,55 +84,55 @@ export function MapDiscovery() {
   }
 
   return (
-    <div className="relative h-[calc(100vh-theme('spacing.24'))] w-full bg-black overflow-hidden flex flex-col md:flex-row">
-      {/* Sidebar */}
-      <div className="w-full md:w-96 bg-surface-mid border-r border-white/10 flex flex-col z-20 shadow-[20px_0_40px_rgba(0,0,0,0.5)] z-20 h-1/2 md:h-full">
-        <div className="p-6 border-b border-white/10 bg-black/50 backdrop-blur-xl">
-          <h1 className="text-3xl font-light mb-2">Global Network</h1>
-          <p className="text-white/50 text-sm font-light mb-6">Discover verified sellers and rare pieces near your location.</p>
+    <div className="relative h-[calc(100dvh-theme('spacing.16'))] md:h-[calc(100vh-theme('spacing.24'))] w-full bg-black overflow-hidden flex flex-col md:flex-row">
+      {/* Sidebar - Appears on bottom on mobile, left on desktop */}
+      <div className="w-full md:w-80 lg:w-96 bg-surface-mid border-t md:border-t-0 md:border-r border-white/10 flex flex-col z-20 shadow-[0_-10px_20px_rgba(0,0,0,0.3)] md:shadow-[20px_0_40px_rgba(0,0,0,0.5)] h-[50%] md:h-full order-2 md:order-1">
+        <div className="p-4 lg:p-6 border-b border-white/10 bg-black/50 backdrop-blur-xl shrink-0">
+          <h1 className="text-2xl lg:text-3xl font-light mb-1 lg:mb-2">Global Network</h1>
+          <p className="text-white/50 text-xs lg:text-sm font-light mb-4 lg:mb-6">Discover verified sellers and rare pieces near your location.</p>
           
           <div className="relative">
             <input 
               type="text" 
-              placeholder="Search by city or country..." 
-              className="w-full bg-surface-light border border-white/20 rounded-full py-3 px-5 pl-12 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-gold transition-colors"
+              placeholder="Search by city..." 
+              className="w-full bg-surface-light border border-white/20 rounded-full py-2.5 lg:py-3 px-4 lg:px-5 pl-10 lg:pl-12 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-gold transition-colors"
             />
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-            <button className="absolute right-4 top-1/2 -translate-y-1/2 text-gold hover:text-white transition-colors">
+            <Search className="absolute left-3 lg:left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+            <button className="absolute right-3 lg:right-4 top-1/2 -translate-y-1/2 text-gold hover:text-white transition-colors">
               <Locate className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-4 lg:p-6 space-y-3 lg:space-y-4">
           {SELLERS.map((seller) => (
             <motion.div 
               key={seller.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
+              className={`p-4 lg:p-5 rounded-xl lg:rounded-2xl border transition-all duration-300 cursor-pointer ${
                 activeLocation === seller.id 
                   ? 'border-gold bg-surface-light shadow-[0_0_20px_rgba(212,175,55,0.1)]' 
                   : 'border-white/10 hover:border-white/30 bg-surface'
               }`}
               onClick={() => setActiveLocation(seller.id)}
             >
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-serif text-xl">{seller.name}</h3>
-                {activeLocation === seller.id && <MapPin className="w-4 h-4 text-gold" />}
+              <div className="flex justify-between items-start mb-1 lg:mb-2">
+                <h3 className="font-serif text-lg lg:text-xl">{seller.name}</h3>
+                {activeLocation === seller.id && <MapPin className="w-4 h-4 text-gold shrink-0 ml-2" />}
               </div>
-              <p className="text-white/60 text-sm font-light mb-4">{seller.location}</p>
+              <p className="text-white/60 text-xs lg:text-sm font-light mb-3 lg:mb-4">{seller.location}</p>
               <div className="flex items-center justify-between">
                 <span className="text-luxury text-[10px] text-white/40">{seller.specialty}</span>
-                <span className="text-xs bg-white/10 px-2 py-1 rounded-sm">{seller.gems} active listings</span>
+                <span className="text-[10px] lg:text-xs bg-white/10 px-2 py-1 rounded-sm">{seller.gems} active listings</span>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Map Area */}
-      <div className="flex-1 relative h-1/2 md:h-full z-10 w-full" id="map-container">
+      {/* Map Area - Appears on top on mobile, right on desktop */}
+      <div className="flex-1 relative h-[50%] md:h-full z-10 w-full order-1 md:order-2" id="map-container">
         {/* We use a dark styled map via CartoDB Dark Matter */}
         <MapContainer 
           key={isDark ? 'dark' : 'light'}
@@ -161,10 +161,10 @@ export function MapDiscovery() {
               }}
             >
               <Popup className="luxury-popup">
-                <div className="bg-surface-light text-white p-2 min-w-[200px]">
-                  <h3 className="font-serif text-lg font-light mb-1 text-gold">{seller.name}</h3>
-                  <p className="text-xs text-white/60 mb-3 pb-3 border-b border-white/10">{seller.location}</p>
-                  <div className="flex justify-between items-center text-xs">
+                <div className="bg-surface-light text-white p-2 min-w-[180px] sm:min-w-[200px]">
+                  <h3 className="font-serif text-base sm:text-lg font-light mb-1 text-gold">{seller.name}</h3>
+                  <p className="text-[10px] sm:text-xs text-white/60 mb-2 sm:mb-3 pb-2 sm:pb-3 border-b border-white/10">{seller.location}</p>
+                  <div className="flex justify-between items-center text-[10px] sm:text-xs">
                     <span className="uppercase tracking-wider text-white/40">{seller.gems} Pieces</span>
                     <Link to={`/seller/${seller.id}`} className="flex items-center space-x-1 text-white hover:text-gold transition-colors">
                       <span>View</span>
@@ -178,11 +178,11 @@ export function MapDiscovery() {
         </MapContainer>
 
         {/* Map Overlay for luxury feel */}
-        <div className={`absolute inset-0 pointer-events-none z-[20] transition-shadow duration-500 ${isDark ? 'shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]' : 'shadow-[inset_0_0_100px_rgba(255,255,255,0.8)]'}`} />
+        <div className={`absolute inset-0 pointer-events-none z-[20] transition-shadow duration-500 ${isDark ? 'shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] md:shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]' : 'shadow-[inset_0_0_50px_rgba(255,255,255,0.8)] md:shadow-[inset_0_0_100px_rgba(255,255,255,0.8)]'}`} />
         
-        <div className="absolute bottom-6 right-6 z-[30] pointer-events-auto">
-          <button className="bg-black/80 backdrop-blur-md border border-white/20 p-4 rounded-full text-white hover:bg-gold hover:border-gold hover:text-black transition-all shadow-lg active:scale-95 duration-300">
-            <Locate className="w-5 h-5" />
+        <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-[30] pointer-events-auto">
+          <button className="bg-black/80 backdrop-blur-md border border-white/20 p-3 md:p-4 rounded-full text-white hover:bg-gold hover:border-gold hover:text-black transition-all shadow-lg active:scale-95 duration-300">
+            <Locate className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
       </div>
