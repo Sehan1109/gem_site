@@ -23,7 +23,7 @@ const SELLERS = [
     verified: true, 
     desc: "Unparalleled direct access to the world's finest Pigeon Blood rubies and Royal Blue sapphires straight from trusted artisanal mines in Southeast Asia.", 
     specialties: ["Burmese Rubies", "Padparadscha"],
-    img: '../public/Image of jewelry.png'
+    img: '/Image of jewelry.png'
   },
   { 
     id: 3, 
@@ -34,7 +34,7 @@ const SELLERS = [
     verified: true, 
     desc: "Curating rare vintage, Art Deco, and estate jewelry alongside investment-grade loose diamonds from major global auctions.", 
     specialties: ["Estate Jewelry", "D-Flawless Diamonds"],
-    img: '../public/Image of earrings.png'
+    img: '/Image of earrings.png'
   },
 ];
 
