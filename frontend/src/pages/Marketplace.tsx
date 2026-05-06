@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Filter, SlidersHorizontal, ChevronDown, Check, LayoutGrid, List } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import img01 from '../public/Emerald1.png';
 import img02 from '../public/Yellow Diamond.png';
 import img03 from '../public/Ruby.png';
@@ -17,6 +18,7 @@ const MOCK_GEMS = [
 ];
 
 export function Marketplace() {
+  const { isAuthenticated } = useAuth();
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -66,6 +68,19 @@ export function Marketplace() {
             <span>Filters</span>
           </button>
         </div>
+      </div>
+
+      <div className="mb-10 rounded-3xl border border-white/10 bg-surface-light p-8 flex flex-col lg:flex-row gap-6 justify-between items-start lg:items-center">
+        <div className="max-w-2xl">
+          <p className="text-white/70 mb-3">Want to sell your own gemstone? Anyone may login and create a listing directly on our platform.</p>
+          <p className="text-white/50 text-sm">Login with your email and start listing rare gems. This flow is open to all visitors.</p>
+        </div>
+        <Link
+          to={isAuthenticated ? '/sell' : '/login'}
+          className="rounded-full bg-gold px-8 py-3 text-xs uppercase tracking-widest text-black transition-colors hover:bg-white hover:text-black"
+        >
+          {isAuthenticated ? 'Create a Listing' : 'Login to Sell'}
+        </Link>
       </div>
 
       <AnimatePresence>

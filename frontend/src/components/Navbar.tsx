@@ -2,12 +2,14 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { MapPin, Search, Menu, X, Gem, Sun, Moon } from 'lucide-react';
 import { useState, useEffect, ReactNode } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,6 +90,29 @@ export function Navbar() {
             >
               Inquire
             </Link>
+            {isAuthenticated ? (
+              <>
+                <Link
+                  to="/sell"
+                  className="px-6 py-2 rounded-full bg-gold text-black uppercase tracking-widest text-xs font-semibold hover:bg-white transition-colors"
+                >
+                  Sell Gem
+                </Link>
+                <button
+                  onClick={logout}
+                  className="px-6 py-2 rounded-full border border-white/30 text-white uppercase tracking-widest text-xs font-semibold hover:bg-white hover:text-black transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="px-6 py-2 rounded-full border border-white/30 text-luxury hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-xs font-semibold"
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu toggle */}
@@ -98,6 +123,12 @@ export function Navbar() {
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+            <Link
+              to={isAuthenticated ? '/sell' : '/login'}
+              className="text-sm text-white/70 hover:text-white transition-colors duration-300"
+            >
+              {isAuthenticated ? 'Sell' : 'Login'}
+            </Link>
             <button 
               className="text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
