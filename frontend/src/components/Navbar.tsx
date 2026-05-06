@@ -46,7 +46,7 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${
           scrolled 
             ? 'glass-panel border-white/10 py-3 sm:py-4' 
             : 'bg-transparent border-transparent py-4 sm:py-6'
@@ -152,7 +152,7 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-0 right-0 h-[100dvh] w-80 max-w-[85vw] z-40 bg-surface/95 backdrop-blur-xl border-l border-white/10 flex flex-col overflow-y-auto"
+            className="fixed top-0 right-0 h-[100dvh] w-80 max-w-[85vw] z-50 bg-surface/95 backdrop-blur-xl border-l border-white/10 flex flex-col overflow-y-auto"
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-5 sm:p-6 border-b border-white/10 shrink-0">
