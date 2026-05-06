@@ -6,42 +6,42 @@ import { Link } from 'react-router-dom';
 const JEWELRY_MOCK = [
   {
     id: 1,
-    name: "The Imperial Emerald Drop",
-    description: "Flawless 12-carat Colombian emerald suspended from a cascade of D-flawless diamonds.",
+    name: "Serendib Sapphire Drop",
+    description: "A finely crafted Ceylon blue sapphire necklace inspired by Sri Lanka's coastal heritage.",
     price: "Upon Request",
     category: "Necklace",
-    stone: "Colombian Emerald",
-    metal: "Platinum",
+    stone: "Ceylon Sapphire",
+    metal: "White Gold",
     img: "https://plus.unsplash.com/premium_photo-1681276170092-446cd1b5b32d?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 2,
-    name: "Radiant Pink Diamond",
-    description: "Extremely rare 3.14-carat Argyle pink diamond set in platinum and 18k rose gold.",
+    name: "Temple Padparadscha Ring",
+    description: "A rare Sri Lankan padparadscha set in platinum with delicate filigree inspired by classic temple art.",
     price: "Private Sale",
     category: "Ring",
-    stone: "Pink Diamond",
-    metal: "18k Rose Gold",
+    stone: "Padparadscha Sapphire",
+    metal: "Platinum",
     img: "https://images.unsplash.com/photo-1481980235850-66e47651e431?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 3,
-    name: "Kashmir Sapphire Suite",
-    description: "Matched pair of unheated Kashmir sapphires, 8.2 carats total, with pear-cut diamond crowns.",
+    name: "Ratnapura Ruby Suite",
+    description: "Heirloom ruby earrings set with Sri Lankan rubies and diamond accents for elevated evening elegance.",
     price: "Inquire",
     category: "Earrings",
-    stone: "Kashmir Sapphire",
-    metal: "White Gold",
+    stone: "Ratnapura Ruby",
+    metal: "Rose Gold",
     img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: 4,
-    name: "Art Deco Ruby Bracelet",
-    description: "Original 1925 design featuring over 40 carats of square-cut Burmese rubies.",
+    name: "Galle Pearl Collar",
+    description: "A luxurious pearl collar necklace drawing on Sri Lanka's historic coastal pearl trade.",
     price: "Upon Request",
     category: "Bracelet",
-    stone: "Burmese Ruby",
-    metal: "Platinum",
+    stone: "South Sea Pearls",
+    metal: "Yellow Gold",
     img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop"
   },
 ];

@@ -1,34 +1,25 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import { ArrowRight, Star, ShieldCheck, Gem } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
 import img01 from '../public/gems.jpg';
 
 export function Home () {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity1 = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div className="-mt-24" ref={containerRef}>
+    <div className="-mt-24">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <motion.div style={{ y: y1, opacity: opacity1 }} className="absolute inset-0 z-0">
-          <img
-            src={img01}
-            alt="Luxury Gemstone Jewelry"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50 z-10" />
-        </motion.div>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black parallax-hero">
+        <div
+          className="absolute inset-0 z-0 parallax-hero-bg"
+          style={{ backgroundImage: `url(${img01})` }}
+        />
+        <div className="absolute inset-0 z-10 bg-black/35" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
 
-        <div className="relative z-20 container mx-auto px-6 text-center mt-20">
+        <div className="parallax-shape parallax-shape-1" />
+        <div className="parallax-shape parallax-shape-2" />
+
+        <div className="relative z-30 container mx-auto px-6 text-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,7 +45,7 @@ export function Home () {
             transition={{ duration: 1, delay: 0.8 }}
             className="text-white/60 max-w-xl mx-auto text-lg md:text-xl font-light mb-12"
           >
-            Discover the world's most exclusive marketplace for investment-grade gemstones and high jewelry creations.
+            Discover Sri Lanka's most exclusive marketplace for investment-grade gemstones, master-cut sapphires, and historic bespoke jewelry.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -99,9 +90,9 @@ export function Home () {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { id: 1, name: "Royal Blue Sapphire", origin: "Kashmir", carat: "4.52", price: "Upon Request", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
-              { id: 2, name: "Pigeon Blood Ruby", origin: "Burma", carat: "2.14", price: "Inquire", img: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg" },
-              { id: 3, name: "Flawless Yellow Diamond", origin: "South Africa", carat: "10.05", price: "Private Sale", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" }
+              { id: 1, name: "Ceylon Blue Sapphire", origin: "Sri Lanka", carat: "5.12", price: "Upon Request", img: "/Sapphire.png" },
+              { id: 2, name: "Padparadscha Sapphire", origin: "Sri Lanka", carat: "3.24", price: "Private Sale", img: "/Yellow Diamond.png" },
+              { id: 3, name: "Ratnapura Ruby", origin: "Sri Lanka", carat: "4.05", price: "Inquire", img: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg" }
             ].map((gem, i) => (
               <motion.div
                 key={gem.id}
@@ -174,11 +165,8 @@ export function Home () {
       </section>
 
       {/* Discovery CTA */}
-      <section className="relative py-40 overflow-hidden bg-black">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-luminosity grayscale"
-          style={{ backgroundImage: `url(${img01})` }}
-        />
+      <section className="relative py-40 overflow-hidden bg-black parallax-cta">
+        <div className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-luminosity grayscale" style={{ backgroundImage: `url(${img01})` }} />
         <div className="relative z-10 container mx-auto px-6 max-w-4xl text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

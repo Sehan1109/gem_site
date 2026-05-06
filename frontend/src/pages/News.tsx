@@ -3,9 +3,9 @@ import { ArrowRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const NEWS_ARTICLES = [
-  { id: 1, title: "Record-breaking Fancy Blue Diamond Surfaces at Geneva Auction", summary: "An exceptionally rare 15-carat fancy blue diamond has broken previous price records, signaling strong institutional interest in colored diamonds as alternative assets.", date: "May 2, 2026", category: "Market Insight", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" },
-  { id: 2, title: "The State of the Mogok Valley: 2026 Update", summary: "A comprehensive look into modern artisanal mining practices and supply forecasts for unheated 'Pigeon Blood' rubies from Myanmar's most famous valley.", date: "April 28, 2026", category: "Origin Report", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
-  { id: 3, title: "Vintage Cartier: Identifying Pre-War Maker's Marks", summary: "Expert guidance for collectors distinguishing authentic Art Deco period Cartier jewelry through microscopic maker's marks and distinctive setting styles.", date: "April 15, 2026", category: "Authentication", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" },
+  { id: 1, title: "Sri Lanka Padparadscha Market Hits New High", summary: "Demand for rare Sri Lankan padparadscha sapphires is surging among collectors seeking luminous pink-orange stones with certified provenance.", date: "May 2, 2026", category: "Market Insight", img: "https://images.unsplash.com/photo-1584346133934-a3afd2a33c4c?q=80&w=1000&auto=format&fit=crop" },
+  { id: 2, title: "Ratnapura Mining Season: 2026 Quality Outlook", summary: "The new harvest promises a strong run of Ceylon sapphires and rubies, with local cutters preparing to bring Sri Lanka's finest stones to market.", date: "April 28, 2026", category: "Origin Report", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
+  { id: 3, title: "Heritage Sri Lankan Jewelry Trends for Private Collectors", summary: "An overview of the rising interest in bespoke island-made sapphire and pearl pieces among international high-net-worth buyers.", date: "April 15, 2026", category: "Authentication", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" },
 ];
 
 export function News() {

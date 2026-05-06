@@ -123,7 +123,7 @@ export function Contact() {
               <div>
                 <h3 className="font-serif text-xl mb-2 text-white">Secure Messaging</h3>
                 <p className="text-white/50 font-light mb-4">Encrypted communication via WhatsApp for immediate inquiries.</p>
-                <a href="https://wa.me/41000000000" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors text-sm uppercase tracking-widest border border-gold px-6 py-2 rounded-full inline-block mt-2">Open WhatsApp</a>
+                <a href="https://wa.me/94770000000" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors text-sm uppercase tracking-widest border border-gold px-6 py-2 rounded-full inline-block mt-2">Open WhatsApp</a>
               </div>
             </div>
 
@@ -134,9 +134,9 @@ export function Contact() {
               <div>
                 <h3 className="font-serif text-xl mb-2 text-white">Corporate Headquarters</h3>
                 <p className="text-white/50 font-light mb-4 text-sm leading-relaxed">
-                  Rue du Rhône 120<br />
-                  1204 Geneva<br />
-                  Switzerland
+                  No. 8, Marine Drive<br />
+                  Colombo 2<br />
+                  Sri Lanka
                 </p>
                 <span className="text-luxury text-white/30 text-[10px]">Strictly by appointment only</span>
               </div>

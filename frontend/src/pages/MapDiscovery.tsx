@@ -20,11 +20,11 @@ const customIcon = new L.Icon({
 });
 
 const SELLERS = [
-  { id: 1, name: "Geneva Vaults", location: "Geneva, Switzerland", coords: [46.2044, 6.1432] as [number, number], specialty: "Rare Diamonds", gems: 12 },
-  { id: 2, name: "Mogok Traders", location: "Bangkok, Thailand", coords: [13.7563, 100.5018] as [number, number], specialty: "Rubies & Sapphires", gems: 34 },
-  { id: 3, name: "Fifth Ave Collections", location: "New York, USA", coords: [40.7128, -74.0060] as [number, number], specialty: "High Jewelry", gems: 8 },
-  { id: 4, name: "Antwerp Diamond Bourse", location: "Antwerp, Belgium", coords: [51.2194, 4.4025] as [number, number], specialty: "Uncut Diamonds", gems: 56 },
-  { id: 5, name: "Colombo Gem Exchange", location: "Colombo, Sri Lanka", coords: [6.9271, 79.8612] as [number, number], specialty: "Padparadscha", gems: 22 },
+  { id: 1, name: "Colombo Gem Exchange", location: "Colombo, Sri Lanka", coords: [6.9271, 79.8612] as [number, number], specialty: "Ceylon Sapphires", gems: 42 },
+  { id: 2, name: "Ratnapura Source House", location: "Ratnapura, Sri Lanka", coords: [6.6940, 80.3980] as [number, number], specialty: "Rubies & Sapphires", gems: 34 },
+  { id: 3, name: "Galle Heritage Atelier", location: "Galle, Sri Lanka", coords: [6.0535, 80.2210] as [number, number], specialty: "Heritage Jewelry", gems: 18 },
+  { id: 4, name: "Kandy Gem Cutters", location: "Kandy, Sri Lanka", coords: [7.2906, 80.6337] as [number, number], specialty: "Gem Cutting", gems: 24 },
+  { id: 5, name: "Bentota Pearl House", location: "Bentota, Sri Lanka", coords: [6.4214, 80.0076] as [number, number], specialty: "Pearls & Coral", gems: 22 },
 ];
 
 function LocationMarker() {
@@ -88,8 +88,8 @@ export function MapDiscovery() {
       {/* Sidebar - Appears on bottom on mobile, left on desktop */}
       <div className="w-full md:w-80 lg:w-96 bg-surface-mid border-t md:border-t-0 md:border-r border-white/10 flex flex-col z-20 shadow-[0_-10px_20px_rgba(0,0,0,0.3)] md:shadow-[20px_0_40px_rgba(0,0,0,0.5)] h-[50%] md:h-full order-2 md:order-1">
         <div className="p-4 lg:p-6 border-b border-white/10 bg-black/50 backdrop-blur-xl shrink-0">
-          <h1 className="text-2xl lg:text-3xl font-light mb-1 lg:mb-2">Global Network</h1>
-          <p className="text-white/50 text-xs lg:text-sm font-light mb-4 lg:mb-6">Discover verified sellers and rare pieces near your location.</p>
+          <h1 className="text-2xl lg:text-3xl font-light mb-1 lg:mb-2">Sri Lanka Network</h1>
+          <p className="text-white/50 text-xs lg:text-sm font-light mb-4 lg:mb-6">Discover verified Sri Lankan sellers and rare island-sourced pieces near your location.</p>
           
           <div className="relative">
             <input 
@@ -136,8 +136,8 @@ export function MapDiscovery() {
         {/* We use a dark styled map via CartoDB Dark Matter */}
         <MapContainer 
           key={isDark ? 'dark' : 'light'}
-          center={[30, 0]} 
-          zoom={3} 
+          center={[7.5, 80]} 
+          zoom={6} 
           scrollWheelZoom={true}
           className="w-full h-full"
           zoomControl={false}

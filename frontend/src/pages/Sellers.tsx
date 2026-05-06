@@ -5,35 +5,35 @@ import { Link } from 'react-router-dom';
 const SELLERS = [
   { 
     id: 1, 
-    name: "Vaults of Geneva", 
+    name: "Colombo Gem Exchange", 
     type: "Heritage Private Dealer", 
-    location: "Geneva, Switzerland", 
+    location: "Colombo, Sri Lanka", 
     rating: 5.0, 
     verified: true, 
-    desc: "A highly discrete network of European dealers specializing in unheated colored stones and flawless diamonds. Over 40 years of trusted acquisitions.", 
-    specialties: ["Colored Diamonds", "Kashmir Sapphires"],
+    desc: "A premier Sri Lankan house offering elite Ceylon sapphires, padparadscha, and heritage jewelry with full provenance.", 
+    specialties: ["Ceylon Sapphires", "Padparadscha"],
     img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" 
   },
   { 
     id: 2, 
-    name: "The Mogok Source", 
+    name: "Ratnapura Source House", 
     type: "Direct Miner & Cutter", 
-    location: "Bangkok, Thailand", 
+    location: "Ratnapura, Sri Lanka", 
     rating: 4.9, 
     verified: true, 
-    desc: "Unparalleled direct access to the world's finest Pigeon Blood rubies and Royal Blue sapphires straight from trusted artisanal mines in Southeast Asia.", 
-    specialties: ["Burmese Rubies", "Padparadscha"],
+    desc: "Direct access to Ratnapura's finest sapphires, rubies, and cat's eye chrysoberyl, hand-selected by third-generation gem merchants.", 
+    specialties: ["Ratnapura Rubies", "Ceylon Sapphires"],
     img: '/Image of jewelry.png'
   },
   { 
     id: 3, 
-    name: "Fifth Avenue Exchange", 
+    name: "Galle Heritage Atelier", 
     type: "Auction & Estate Broker", 
-    location: "New York, USA", 
+    location: "Galle, Sri Lanka", 
     rating: 4.8, 
     verified: true, 
-    desc: "Curating rare vintage, Art Deco, and estate jewelry alongside investment-grade loose diamonds from major global auctions.", 
-    specialties: ["Estate Jewelry", "D-Flawless Diamonds"],
+    desc: "Curating rare Sri Lankan treasure jewelry, antique pearl necklaces, and museum-quality jewels from the island's finest collections.", 
+    specialties: ["Vintage Sri Lankan Jewelry", "Pearl Jewelry"],
     img: '/Image of earrings.png'
   },
 ];

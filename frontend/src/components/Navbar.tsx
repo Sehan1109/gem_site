@@ -84,9 +84,6 @@ export function Navbar() {
               <span className="text-luxury whitespace-nowrap">Discover</span>
             </Link>
             <div className="w-px h-4 bg-white/20"></div>
-            <button className="text-white/70 hover:text-white transition-colors duration-300">
-              <Search className="w-5 h-5" />
-            </button>
             <Link 
               to="/contact" 
               className="px-5 xl:px-6 py-2 border border-white/30 rounded-full text-luxury hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
@@ -170,18 +167,6 @@ export function Navbar() {
               >
                 <X className="w-5 h-5" />
               </button>
-            </div>
-
-            {/* Mobile Search Bar */}
-            <div className="p-5 sm:p-6 pb-0 shrink-0">
-              <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search..." 
-                  className="w-full bg-white/5 border border-white/20 rounded-full py-2 pl-10 pr-4 text-white placeholder:text-white/50 focus:outline-none focus:border-white/50 transition-colors"
-                />
-                <Search className="w-4 h-4 text-white/50 absolute left-4 top-1/2 -translate-y-1/2" />
-              </div>
             </div>
 
             {/* Mobile Menu Content */}

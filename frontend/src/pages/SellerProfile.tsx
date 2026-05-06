@@ -3,9 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ShieldCheck, MapPin, Star, Mail } from 'lucide-react';
 
 const SELLERS = [
-  { id: 1, name: "Vaults of Geneva", type: "Heritage Private Dealer", location: "Geneva, Switzerland", rating: 5.0, verified: true, desc: "A highly discrete network of European dealers specializing in unheated colored stones and flawless diamonds. Over 40 years of trusted acquisitions.", specialties: ["Colored Diamonds", "Kashmir Sapphires"], img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
-  { id: 2, name: "The Mogok Source", type: "Direct Miner & Cutter", location: "Bangkok, Thailand", rating: 4.9, verified: true, desc: "Unparalleled direct access to the world's finest Pigeon Blood rubies and Royal Blue sapphires straight from trusted artisanal mines in Southeast Asia.", specialties: ["Burmese Rubies", "Padparadscha"], img: "/Image of jewelry.png" },
-  { id: 3, name: "Fifth Avenue Exchange", type: "Auction & Estate Broker", location: "New York, USA", rating: 4.8, verified: true, desc: "Curating rare vintage, Art Deco, and estate jewelry alongside investment-grade loose diamonds from major global auctions.", specialties: ["Estate Jewelry", "D-Flawless Diamonds"], img: "/Image of earrings.png" },
+  { id: 1, name: "Colombo Gem Exchange", type: "Heritage Private Dealer", location: "Colombo, Sri Lanka", rating: 5.0, verified: true, desc: "A premier Sri Lankan house offering elite Ceylon sapphires, padparadscha, and heritage jewelry with full provenance.", specialties: ["Ceylon Sapphires", "Padparadscha"], img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
+  { id: 2, name: "Ratnapura Source House", type: "Direct Miner & Cutter", location: "Ratnapura, Sri Lanka", rating: 4.9, verified: true, desc: "Direct access to Ratnapura's finest sapphires, rubies, and cat's eye chrysoberyl, hand-selected by third-generation gem merchants.", specialties: ["Ratnapura Rubies", "Ceylon Sapphires"], img: "/Image of jewelry.png" },
+  { id: 3, name: "Galle Heritage Atelier", type: "Auction & Estate Broker", location: "Galle, Sri Lanka", rating: 4.8, verified: true, desc: "Curating rare Sri Lankan treasure jewelry, antique pearl necklaces, and museum-quality jewels from the island's finest collections.", specialties: ["Vintage Sri Lankan Jewelry", "Pearl Jewelry"], img: "/Image of earrings.png" },
 ];
 
 export function SellerProfile() {

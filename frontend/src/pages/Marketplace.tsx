@@ -9,12 +9,12 @@ import img03 from '../public/Ruby.png';
 import img04 from '../public/Sapphire.png';
 
 const MOCK_GEMS = [
-  { id: 1, name: "Royal Blue Sapphire", origin: "Kashmir", carat: "4.52", price: "Upon Request", cert: "Gübelin", type: "Sapphire", color: "Blue", img: img04 },
-  { id: 2, name: "Pigeon Blood Ruby", origin: "Burma", carat: "2.14", price: "Private Sale", cert: "SSEF", type: "Ruby", color: "Red", img: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg" },
-  { id: 3, name: "Flawless Yellow Diamond", origin: "South Africa", carat: "10.05", price: "Inquire", cert: "GIA", type: "Diamond", color: "Yellow", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1000&auto=format&fit=crop" },
-  { id: 4, name: "Colombian Emerald", origin: "Muzo", carat: "6.20", price: "Upon Request", cert: "CDTEC", type: "Emerald", color: "Green", img: img01 },
-  { id: 5, name: "Padparadscha Sapphire", origin: "Sri Lanka", carat: "3.80", price: "Private Sale", cert: "Gübelin", type: "Sapphire", color: "Pink-Orange", img: img02 },
-  { id: 6, name: "Paraiba Tourmaline", origin: "Brazil", carat: "1.95", price: "Inquire", cert: "GIA", type: "Tourmaline", color: "Neon Blue", img: img03 },
+  { id: 1, name: "Ceylon Blue Sapphire", origin: "Sri Lanka", carat: "5.12", price: "Upon Request", cert: "Gübelin", type: "Sapphire", color: "Blue", img: img04 },
+  { id: 2, name: "Padparadscha Sapphire", origin: "Sri Lanka", carat: "3.24", price: "Private Sale", cert: "Gübelin", type: "Sapphire", color: "Pink-Orange", img: img02 },
+  { id: 3, name: "Ratnapura Ruby", origin: "Sri Lanka", carat: "4.05", price: "Inquire", cert: "SSEF", type: "Ruby", color: "Red", img: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Rough_Diamond.jpg" },
+  { id: 4, name: "Sri Lankan White Sapphire", origin: "Sri Lanka", carat: "6.20", price: "Upon Request", cert: "GIA", type: "Sapphire", color: "White", img: img01 },
+  { id: 5, name: "Golden Cat's Eye", origin: "Sri Lanka", carat: "3.80", price: "Private Sale", cert: "Gübelin", type: "Chrysoberyl", color: "Golden", img: img02 },
+  { id: 6, name: "Ceylon Pink Spinel", origin: "Sri Lanka", carat: "2.15", price: "Inquire", cert: "GIA", type: "Spinel", color: "Pink", img: img03 },
 ];
 
 export function Marketplace() {
