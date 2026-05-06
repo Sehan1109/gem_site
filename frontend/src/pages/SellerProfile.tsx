@@ -4,7 +4,7 @@ import { ArrowLeft, ShieldCheck, MapPin, Star, Mail } from 'lucide-react';
 
 const SELLERS = [
   { id: 1, name: "Vaults of Geneva", type: "Heritage Private Dealer", location: "Geneva, Switzerland", rating: 5.0, verified: true, desc: "A highly discrete network of European dealers specializing in unheated colored stones and flawless diamonds. Over 40 years of trusted acquisitions.", specialties: ["Colored Diamonds", "Kashmir Sapphires"], img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000&auto=format&fit=crop" },
-  { id: 2, name: "The Mogok Source", type: "Direct Miner & Cutter", location: "Bangkok, Thailand", rating: 4.9, verified: true, desc: "Unparalleled direct access to the world's finest Pigeon Blood rubies and Royal Blue sapphires straight from trusted artisanal mines in Southeast Asia.", specialties: ["Burmese Rubies", "Padparadscha"], img: "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop" },
+  { id: 2, name: "The Mogok Source", type: "Direct Miner & Cutter", location: "Bangkok, Thailand", rating: 4.9, verified: true, desc: "Unparalleled direct access to the world's finest Pigeon Blood rubies and Royal Blue sapphires straight from trusted artisanal mines in Southeast Asia.", specialties: ["Burmese Rubies", "Padparadscha"], img: "../public/Image of jewelry.png" },
   { id: 3, name: "Fifth Avenue Exchange", type: "Auction & Estate Broker", location: "New York, USA", rating: 4.8, verified: true, desc: "Curating rare vintage, Art Deco, and estate jewelry alongside investment-grade loose diamonds from major global auctions.", specialties: ["Estate Jewelry", "D-Flawless Diamonds"], img: "https://images.unsplash.com/photo-1584346133934-a3afd2a33c4c?q=80&w=1000&auto=format&fit=crop" },
 ];
 
@@ -86,7 +86,7 @@ export function SellerProfile() {
                        <div className="absolute inset-0 flex items-center justify-center text-white/20 uppercase tracking-widest">
                           Protected View
                        </div>
-                       <img src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop" alt="item" className="w-full h-full object-cover opacity-50 dark:mix-blend-lighten group-hover:scale-110 transition-transform duration-1000" />
+                       <img src="../public/Image of jewelry.png" alt="item" className="w-full h-full object-cover opacity-50 dark:mix-blend-lighten group-hover:scale-110 transition-transform duration-1000" />
                     </div>
                     <div className="p-4">
                        <h4 className="font-serif text-lg mb-1 group-hover:text-gold transition-colors">Exclusive Private Piece</h4>
