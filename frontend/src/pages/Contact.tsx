@@ -1,92 +1,149 @@
-import { PageTransition } from '../components/PageTransition';
+import { motion } from 'motion/react';
+import { Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export function Contact() {
-  return (
-    <PageTransition className="pt-32 pb-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-        
-        {/* Contact Form */}
-        <div>
-          <h1 className="text-4xl md:text-6xl text-ivory mb-6 font-serif">Private Viewings</h1>
-          <p className="text-silver text-sm leading-relaxed mb-12 max-w-md">
-            Our master jewelers and gemologists are available for private consultations. Please enclose your details to request an appointment at a boutique or a secure private location.
-          </p>
+  const location = useLocation();
+  const [subject, setSubject] = useState('acquisition');
+  const [message, setMessage] = useState('');
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const reason = params.get('reason');
+    const item = params.get('item');
+    const type = params.get('type');
+    const seller = params.get('seller');
+
+    if (reason === 'selling') {
+      setSubject('selling');
+    }
+    
+    if (item && type) {
+       setSubject('acquisition');
+       setMessage(`I would like to inquire about the ${type} with ID #${item}. Please provide pricing and availability details.`);
+    }
+
+    if (seller) {
+       setSubject('other');
+       setMessage(`I would like to contact Seller #${seller} regarding their portfolio.`);
+    }
+  }, [location.search]);
+
+  return (
+    <div className="container mx-auto px-6 max-w-7xl pt-20 pb-32">
+      <div className="text-center mb-24">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+          className="text-5xl md:text-7xl mb-6"
+        >
+          Private Consultation
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-xl text-white/50 font-light max-w-2xl mx-auto"
+        >
+          Inquire about specific pieces, bespoke acquisition services, or scheduling a discrete viewing.
+        </motion.p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
+          <h2 className="text-3xl font-light mb-8">Send an Inquiry</h2>
           <form className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex flex-col">
-                <label className="text-silver text-xs uppercase tracking-widest mb-2 font-mono">First Name</label>
-                <input type="text" className="bg-transparent border-b border-silver/30 py-3 text-ivory focus:outline-none focus:border-gold transition-colors" />
+              <div className="space-y-2">
+                <label className="text-luxury text-white/50">First Name</label>
+                <input type="text" className="w-full bg-transparent border-b border-white/20 focus:border-gold py-2 outline-none text-white transition-colors" />
               </div>
-              <div className="flex flex-col">
-                <label className="text-silver text-xs uppercase tracking-widest mb-2 font-mono">Last Name</label>
-                <input type="text" className="bg-transparent border-b border-silver/30 py-3 text-ivory focus:outline-none focus:border-gold transition-colors" />
+              <div className="space-y-2">
+                <label className="text-luxury text-white/50">Last Name</label>
+                <input type="text" className="w-full bg-transparent border-b border-white/20 focus:border-gold py-2 outline-none text-white transition-colors" />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <label className="text-luxury text-white/50">Email Address</label>
+              <input type="email" className="w-full bg-transparent border-b border-white/20 focus:border-gold py-2 outline-none text-white transition-colors" />
+            </div>
+            <div className="space-y-2">
+              <label className="text-luxury text-white/50">Subject of Inquiry</label>
+              <select 
+                value={subject}
+                onChange={e => setSubject(e.target.value)}
+                className="w-full bg-transparent border-b border-white/20 focus:border-gold py-2 outline-none text-white transition-colors appearance-none"
+              >
+                <option value="acquisition" className="bg-black text-white">Gemstone Acquisition</option>
+                <option value="selling" className="bg-black text-white">Listing an Item</option>
+                <option value="bespoke" className="bg-black text-white">Bespoke Jewelry Service</option>
+                <option value="other" className="bg-black text-white">Other</option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label className="text-luxury text-white/50">Message</label>
+              <textarea 
+                rows={4} 
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                className="w-full bg-transparent border-b border-white/20 focus:border-gold py-2 outline-none text-white transition-colors resize-none"
+              ></textarea>
+            </div>
+            <button 
+              type="submit" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert("Thank you. Our concierge will be in touch shortly.");
+                setMessage('');
+              }}
+              className="px-10 py-4 bg-white text-black hover:bg-gold hover:text-white transition-colors duration-500 rounded-full text-sm uppercase tracking-widest font-semibold w-full md:w-auto"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="lg:pl-12 lg:border-l border-white/10">
+          <h2 className="text-3xl font-light mb-12">Direct Contact</h2>
+          
+          <div className="space-y-12">
+            <div className="flex items-start space-x-6">
+              <div className="p-4 rounded-full border border-white/10 bg-white/5">
+                <Phone className="w-6 h-6 text-white/70" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl mb-2 text-white">Global Concierge</h3>
+                <p className="text-white/50 font-light mb-4">Available 24/7 for our distinguished clients.</p>
+                <a href="tel:+41000000000" className="text-gold hover:text-white transition-colors text-xl font-light">+41 22 000 0000</a>
               </div>
             </div>
             
-            <div className="flex flex-col">
-              <label className="text-silver text-xs uppercase tracking-widest mb-2 font-mono">Email</label>
-              <input type="email" className="bg-transparent border-b border-silver/30 py-3 text-ivory focus:outline-none focus:border-gold transition-colors" />
+            <div className="flex items-start space-x-6">
+              <div className="p-4 rounded-full border border-white/10 bg-white/5">
+                <MessageSquare className="w-6 h-6 text-white/70" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl mb-2 text-white">Secure Messaging</h3>
+                <p className="text-white/50 font-light mb-4">Encrypted communication via WhatsApp for immediate inquiries.</p>
+                <a href="https://wa.me/41000000000" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors text-sm uppercase tracking-widest border border-gold px-6 py-2 rounded-full inline-block mt-2">Open WhatsApp</a>
+              </div>
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-silver text-xs uppercase tracking-widest mb-2 font-mono">Area of Interest</label>
-              <select className="bg-transparent border-b border-silver/30 py-3 text-ivory focus:outline-none focus:border-gold transition-colors appearance-none">
-                <option className="bg-charcoal">Loose Gemstones</option>
-                <option className="bg-charcoal">High Jewelry Commission</option>
-                <option className="bg-charcoal">Bridal</option>
-                <option className="bg-charcoal">Other Inquiry</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col">
-              <label className="text-silver text-xs uppercase tracking-widest mb-2 font-mono">Message (Optional)</label>
-              <textarea rows={3} className="bg-transparent border-b border-silver/30 py-3 text-ivory focus:outline-none focus:border-gold transition-colors resize-none"></textarea>
-            </div>
-
-            <button type="button" className="text-xs uppercase tracking-widest border border-gold text-gold px-10 py-4 hover:bg-gold hover:text-obsidian transition-colors w-full md:w-auto">
-              Request Appointment
-            </button>
-          </form>
-        </div>
-
-        {/* Location Info / Map Placeholder */}
-        <div className="bg-charcoal p-8 md:p-16 flex flex-col justify-center relative overflow-hidden border border-silver/5">
-          <div className="absolute top-0 right-0 p-8 text-6xl text-silver/5 font-serif select-none">
-            GENEVA
-          </div>
-          
-          <h3 className="text-gold tracking-widest uppercase text-xs mb-8">Headquarters & Salòn</h3>
-          <p className="text-2xl text-ivory font-serif mb-4">Maison Aurelia</p>
-          <p className="text-silver text-sm leading-relaxed mb-8 font-mono">
-            Rue du Rhône 42<br/>
-            1204 Geneva<br/>
-            Switzerland
-          </p>
-          
-          <div className="space-y-4">
-            <p className="flex items-center gap-4 border-b border-silver/10 pb-4">
-              <span className="text-gold text-xs uppercase tracking-widest">Phone</span>
-              <span className="text-ivory font-mono text-sm">+41 22 555 0192</span>
-            </p>
-            <p className="flex items-center gap-4">
-              <span className="text-gold text-xs uppercase tracking-widest">Email</span>
-              <span className="text-ivory font-mono text-sm">concierge@aurelia-gems.com</span>
-            </p>
-          </div>
-
-          <div className="mt-16 pt-8 border-t border-silver/10">
-            <h4 className="text-ivory font-serif mb-4">Other Boutiques</h4>
-            <div className="grid grid-cols-2 gap-4 text-silver font-mono text-xs">
-              <p>Place Vendôme, Paris</p>
-              <p>Bond Street, London</p>
-              <p>Fifth Avenue, New York</p>
-              <p>Ginza, Tokyo</p>
+            <div className="flex items-start space-x-6">
+              <div className="p-4 rounded-full border border-white/10 bg-white/5">
+                <MapPin className="w-6 h-6 text-white/70" />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl mb-2 text-white">Corporate Headquarters</h3>
+                <p className="text-white/50 font-light mb-4 text-sm leading-relaxed">
+                  Rue du Rhône 120<br />
+                  1204 Geneva<br />
+                  Switzerland
+                </p>
+                <span className="text-luxury text-white/30 text-[10px]">Strictly by appointment only</span>
+              </div>
             </div>
           </div>
-        </div>
-
+        </motion.div>
       </div>
-    </PageTransition>
+    </div>
   );
 }

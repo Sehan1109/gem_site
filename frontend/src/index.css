@@ -1,76 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --color-black: var(--theme-black);
+  --color-white: var(--theme-white);
+  --color-surface-pure: var(--theme-surface-pure);
+  --color-surface: var(--theme-surface);
+  --color-surface-mid: var(--theme-surface-mid);
+  --color-surface-light: var(--theme-surface-light);
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-silver: #C0C0C0;
   
-  --color-obsidian: var(--theme-obsidian);
-  --color-charcoal: var(--theme-charcoal);
-  --color-gold: var(--theme-gold);
-  --color-gold-muted: var(--theme-gold-muted);
-  --color-ivory: var(--theme-ivory);
-  --color-silver: var(--theme-silver);
-}
-
-:root {
-  --theme-obsidian: #F5F5F0;
-  --theme-charcoal: #EAEAE5;
-  --theme-gold: #D4AF37;
-  --theme-gold-muted: #A8862F;
-  --theme-ivory: #050505;
-  --theme-silver: #555555;
-  color-scheme: light;
-}
-
-.dark {
-  --theme-obsidian: #050505;
-  --theme-charcoal: #121212;
-  --theme-gold: #D4AF37;
-  --theme-gold-muted: #A8862F;
-  --theme-ivory: #F5F5F0;
-  --theme-silver: #A0A0A0;
-  color-scheme: dark;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --animate-fade-in: fadeIn 1s ease-out forwards;
+  --animate-slam-in: slamIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @layer base {
+  :root, :root.dark {
+    color-scheme: dark;
+    --theme-black: #000000;
+    --theme-white: #ffffff;
+    --theme-surface-pure: #000000;
+    --theme-surface: #050505;
+    --theme-surface-mid: #0a0a0a;
+    --theme-surface-light: #111111;
+  }
+  
+  :root.light {
+    color-scheme: light;
+    /* We swap black and white mapping */
+    --theme-black: #ffffff;
+    --theme-white: #0a0a0a; 
+    --theme-surface-pure: #ffffff;
+    --theme-surface: #fafafa;
+    --theme-surface-mid: #f4f4f5;
+    --theme-surface-light: #e4e4e7;
+  }
+
   body {
-    @apply bg-obsidian text-ivory font-sans antialiased selection:bg-gold selection:text-obsidian overflow-x-hidden transition-colors duration-500;
+    @apply bg-black text-white font-sans overflow-x-hidden transition-colors duration-500;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal tracking-wide;
+    @apply font-serif font-light;
   }
 }
 
-/* Custom Utilities for Luxury Feel */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-md border border-white/10;
   }
-  .glint-effect {
-    position: relative;
-    overflow: hidden;
+  
+  .glass-card {
+    @apply bg-surface-light/80 backdrop-blur-sm border border-white/5;
   }
-  .glint-effect::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-20deg);
-    transition: all 0.7s ease;
+  
+  .text-glow {
+    /* Using custom property to adapt text shadow automatically */
+    text-shadow: 0 0 20px color-mix(in srgb, var(--theme-white) 30%, transparent);
   }
-  .glint-effect:hover::after {
-    left: 150%;
+  
+  .text-luxury {
+    @apply uppercase tracking-widest text-xs font-semibold opacity-70;
   }
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slamIn {
+  0% { transform: scale(1.5) translateY(100px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-surface-mid);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-surface-light);
+}
+
+/* Leaflet Customizations for Theme */
+.leaflet-container {
+  background: var(--theme-surface) !important;
+  font-family: inherit !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--theme-surface-light) !important;
+  color: var(--theme-white) !important;
+  border-radius: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--theme-white) 10%, transparent) !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--theme-surface-light) !important;
+  border-top: 1px solid color-mix(in srgb, var(--theme-white) 10%, transparent) !important;
+  border-left: 1px solid color-mix(in srgb, var(--theme-white) 10%, transparent) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: inherit !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--theme-white) !important;
+  text-shadow: none !important;
+  padding: 8px !important;
+}
+.leaflet-popup-close-button:hover {
+  color: #D4AF37 !important;
 }

@@ -1,44 +1,37 @@
-import { AnimatePresence } from 'motion/react';
-import { Route, Routes, useLocation, BrowserRouter } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
-import { Gems } from './pages/Gems';
-import { Jewelry } from './pages/Jewelry';
-import { Heritage } from './pages/Heritage';
-import { Journal } from './pages/Journal';
+import { Marketplace } from './pages/Marketplace';
+import { MapDiscovery } from './pages/MapDiscovery';
+import { About } from './pages/About';
 import { Contact } from './pages/Contact';
-import { ThemeProvider } from './components/ThemeProvider';
-
-function MainLayout() {
-  const location = useLocation();
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/gems" element={<Gems />} />
-            <Route path="/jewelry" element={<Jewelry />} />
-            <Route path="/heritage" element={<Heritage />} />
-            <Route path="/journal" element={<Journal />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </AnimatePresence>
-      </main>
-      <Footer />
-    </div>
-  );
-}
+import { Jewelry } from './pages/Jewelry';
+import { Sellers } from './pages/Sellers';
+import { GemDetails } from './pages/GemDetails';
+import { JewelryDetails } from './pages/JewelryDetails';
+import { SellerProfile } from './pages/SellerProfile';
+import { News } from './pages/News';
+import { NewsDetails } from './pages/NewsDetails';
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="aurelia-theme">
-      <BrowserRouter>
-        <MainLayout />
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="marketplace" element={<Marketplace />} />
+          <Route path="gem/:id" element={<GemDetails />} />
+          <Route path="jewelry" element={<Jewelry />} />
+          <Route path="jewelry/:id" element={<JewelryDetails />} />
+          <Route path="sellers" element={<Sellers />} />
+          <Route path="seller/:id" element={<SellerProfile />} />
+          <Route path="map" element={<MapDiscovery />} />
+          <Route path="about" element={<About />} />
+          <Route path="news" element={<News />} />
+          <Route path="news/:id" element={<NewsDetails />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

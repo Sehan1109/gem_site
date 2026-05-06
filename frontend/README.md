@@ -1,36 +1,20 @@
-# Gem Site - Luxury Gemstone Showcase
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-A high-end, luxury gemstone and bespoke jewelry showcase web application built with React, Vite, Tailwind CSS, and Framer Motion. The site features a dark, cinematic aesthetic with smooth scroll animations, curated gemstone galleries, and a premium user experience.
+# Run and deploy your AI Studio app
 
-## Features
+This contains everything you need to run your app locally.
 
-- **Cinematic Dark Theme**: Aesthetic UI design featuring 'obsidian' backgrounds, 'ivory' text, and 'gold' accents.
-- **Fluid Animations**: Smooth page transitions and scroll-based reveal effects powered by Framer Motion.
-- **Curated Galleries**: Browse through exclusive loose stones and bespoke creations.
-- **Responsive Design**: Fully optimized for both desktop and mobile viewing.
-
-## Tech Stack
-
-- **Frontend Framework**: React 19
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Routing**: React Router DOM
-- **Icons**: Lucide React
+View your app in AI Studio: https://ai.studio/apps/86fc0086-835d-4556-8a5d-0fe83a308b11
 
 ## Run Locally
 
-**Prerequisites:** Node.js
+**Prerequisites:**  Node.js
+
 
 1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Run the development server:
-   ```bash
-   npm run dev
-   ```
-3. Build for production:
-   ```bash
-   npm run build
-   ```
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
