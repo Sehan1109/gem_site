@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, SlidersHorizontal, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const JEWELRY_MOCK = [
   {
@@ -51,6 +51,16 @@ export function Jewelry() {
   const [visibleCount, setVisibleCount] = useState(4);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All Pieces');
+  const [searchParams] = useSearchParams();
+
+  // Handle category from URL query parameter
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+      setVisibleCount(4);
+    }
+  }, [searchParams]);
 
   const categoryMap: { [key: string]: string } = {
     'All Pieces': '',
@@ -80,7 +90,7 @@ export function Jewelry() {
 
   return (
     <div className="bg-surface">
-      {/* Hero Section */}
+      {/* Hero Section 
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden -mt-24">
         <motion.div
           initial={{ scale: 1.1 }}
@@ -111,10 +121,10 @@ export function Jewelry() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section>*/}
 
-      {/* Categories / Nav */}
-      <section className="border-y border-white/10 bg-surface-mid sticky top-[88px] z-30 backdrop-blur-md bg-surface-mid/80">
+      {/* Categories / Nav 
+      <section className="border-y border-white bg-surface-mid backdrop-blur-md bg-surface-mid/80">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex items-center justify-between py-6 overflow-x-auto custom-scrollbar">
             <div className="flex space-x-12 min-w-max pr-8">
@@ -171,7 +181,7 @@ export function Jewelry() {
             )}
           </AnimatePresence>
         </div>
-      </section>
+      </section>*/}
 
       {/* Grid */}
       <section className="py-24 container mx-auto px-6 max-w-7xl">

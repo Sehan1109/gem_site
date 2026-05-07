@@ -1,15 +1,17 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import { MapPin, Search, Menu, X, Gem, Sun, Moon } from 'lucide-react';
-import { useState, useEffect, ReactNode } from 'react';
+import { MapPin, Search, Menu, X, Gem, Sun, Moon, ChevronDown } from 'lucide-react';
+import { useState, useEffect, ReactNode, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [jewelryDropdownOpen, setJewelryDropdownOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const location = useLocation();
   const { isAuthenticated, logout } = useAuth();
+  const jewelryDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +40,19 @@ export function Navbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setJewelryDropdownOpen(false);
   }, [location]);
+
+  // Close jewelry dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (jewelryDropdownRef.current && !jewelryDropdownRef.current.contains(event.target as Node)) {
+        setJewelryDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -63,7 +77,11 @@ export function Navbar() {
             
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <NavLink to="/marketplace">Marketplace</NavLink>
-              <NavLink to="/jewelry">Jewelry</NavLink>
+              <JewelryDropdown 
+                isOpen={jewelryDropdownOpen} 
+                setIsOpen={setJewelryDropdownOpen}
+                dropdownRef={jewelryDropdownRef}
+              />
               <NavLink to="/sellers">Sellers</NavLink>
               <NavLink to="/about">Heritage</NavLink>
               <NavLink to="/news">News</NavLink>
@@ -254,5 +272,69 @@ function MobileNavLink({ to, children, onClick }: { to: string, children: ReactN
     >
       {children}
     </Link>
+  );
+}
+
+interface JewelryDropdownProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+  dropdownRef: React.RefObject<HTMLDivElement>;
+}
+
+const JEWELRY_CATEGORIES = [
+  'All Pieces',
+  'Rings',
+  'Necklaces',
+  'Earrings',
+  'Bracelets',
+  'Vintage'
+];
+
+function JewelryDropdown({ isOpen, setIsOpen, dropdownRef }: JewelryDropdownProps) {
+  const location = useLocation();
+  const isActive = location.pathname.startsWith('/jewelry');
+
+  return (
+    <div ref={dropdownRef} className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        onMouseEnter={() => setIsOpen(true)}
+        className={`text-sm xl:text-base relative group overflow-hidden flex items-center space-x-2 ${isActive ? 'text-white' : 'text-white/60 hover:text-white transition-colors'}`}
+      >
+        <span className="relative z-10">Jewelry</span>
+        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <span 
+          className={`absolute bottom-0 left-0 h-[1px] bg-white transition-all duration-300 ${
+            isActive ? 'w-full' : 'w-0 group-hover:w-full'
+          }`}
+        ></span>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            onMouseLeave={() => setIsOpen(false)}
+            className="absolute top-full left-0 mt-2 w-48 bg-surface/95 backdrop-blur-md border border-white/10 rounded-lg shadow-2xl z-50 overflow-hidden"
+          >
+            <div className="py-2">
+              {JEWELRY_CATEGORIES.map((category) => (
+                <Link
+                  key={category}
+                  to={`/jewelry?category=${encodeURIComponent(category)}`}
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 transition-colors flex items-center block w-full text-left"
+                >
+                  {category}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
